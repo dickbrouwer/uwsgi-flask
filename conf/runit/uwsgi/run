@@ -1,0 +1,11 @@
+#!/bin/sh
+
+cd /home/app
+exec /usr/local/bin/uwsgi \
+    --uid app \
+    --gid www-data \
+    --socket /tmp/uwsgi.sock \
+    --chmod-socket=666 \
+    --processes 4 \
+    --module webapp \
+    --callable app
